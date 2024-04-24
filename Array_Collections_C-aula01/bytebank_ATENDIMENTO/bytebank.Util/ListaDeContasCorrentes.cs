@@ -1,16 +1,36 @@
 ﻿using bytebank.Modelos.Conta;
-
 namespace bytebank_ATENDIMENTO.bytebank.Util;
-internal class ContasCorrentes
+public class ListaDeContasCorrentes
 {
     private ContaCorrente[] itens = null;
-    public ContasCorrentes(int tamanhoInicial)
+    private int proximaPosicao=0;
+    public ListaDeContasCorrentes(int tamanhoInicial = 5)
     {
-        itens = new ContaCorrente[tamanhoInicial =5 ];
+        itens = new ContaCorrente[tamanhoInicial];
     }
 
-    public void AdicionarContaCorrente(ContaCorrente item)
+    public void Adicionar(ContaCorrente item)
     {
-        if 
+        VerificarCapacidadeArray(proximaPosicao + 1);
+        Console.WriteLine($"Adicionando item na posicao {proximaPosicao}");
+        itens[proximaPosicao] = item;
+        proximaPosicao++;
+    }
+
+    private void VerificarCapacidadeArray(int tamanhoNecessario)
+    {
+        if(itens.Length >= tamanhoNecessario)
+        {
+            return;
+        }
+        Console.WriteLine("Aumentando a capacidade da lista!");
+        ContaCorrente[] novoArray = new ContaCorrente[tamanhoNecessario];
+
+        for (int i = 0; i < itens.Length; i++)
+        {
+            novoArray[i] = itens[i];
+        }
+        itens = novoArray;
+        
     }
 }
