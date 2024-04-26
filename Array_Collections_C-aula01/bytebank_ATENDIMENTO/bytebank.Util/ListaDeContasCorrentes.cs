@@ -12,7 +12,7 @@ public class ListaDeContasCorrentes
 
     public void Adicionar(ContaCorrente item)
     {
-        VerificarCapacidadeArray(proximaPosicao + 1);
+        VerificarCapacidadeArray(proximaPosicao +1);
         Console.WriteLine($"Adicionando item na posicao {proximaPosicao}");
         itens[proximaPosicao] = item;
         proximaPosicao++;
@@ -34,7 +34,7 @@ public class ListaDeContasCorrentes
         itens = novoArray;
         
     }
-    public void Remover(ContaCorrente item)
+    public void Remover(ContaCorrente conta)
     {
         int indiceItem = -1;
         for (int i = 0; i < proximaPosicao; i++)
@@ -46,8 +46,6 @@ public class ListaDeContasCorrentes
                 break;
             }
         }
-        // 0         1       2
-        //[conta1][conta2][conta4][conta5][null]
         for (int i = indiceItem; i < proximaPosicao - 1; i++)
         {
             itens[i] = itens[i + 1];
@@ -56,5 +54,13 @@ public class ListaDeContasCorrentes
         itens[proximaPosicao] = null;
     }
 
-
+    public void ExibirListaDeContas()
+    {
+        for (int i = 0;  i < itens.Length; i++)
+        {
+            Console.WriteLine($"Indice {i} Conta ->{itens[i].Conta} {itens[i].Numero_agencia}\nTitular ->{itens[i].Titular}\nSaldo ->{itens[i].Saldo}");
+            Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+            Console.WriteLine();
+        }
+    }
 }
