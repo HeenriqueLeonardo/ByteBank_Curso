@@ -52,8 +52,7 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
                     break;
                 }
             }
-            // 0         1       2
-            //[conta1][conta2][conta4][conta5][null]
+            
             for (int i = indiceItem; i < _proximaPosicao-1; i++)
             {
                 _itens[i] = _itens[i + 1];
