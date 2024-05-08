@@ -1,7 +1,7 @@
 ﻿using ByteBankIO;
 using System.Text;
 using System.Text.Unicode;
-partial class program {
+partial class Program {
     static void LidandoComFileStream()
     {
         var enderecoDoArquivo = "contas.txt";
