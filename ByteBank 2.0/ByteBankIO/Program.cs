@@ -1,7 +1,9 @@
 ﻿using ByteBankIO;
 
+
 partial class Program
 {
+
     static void Main(String[] args)
     {
         var enderecoDoArquivo = "contas.txt";
@@ -14,7 +16,7 @@ partial class Program
             {
                 var linha = leitor.ReadLine();
                 var contaCorrente = ConverterStringParaContaCorrente(linha);
-                var msg = $"Conta número - {contaCorrente.Numero}\n" +
+                var msg = $"{contaCorrente.Titular.Nome}: Conta número - {contaCorrente.Numero}\n" +
                     $"Agência - {contaCorrente.Agencia}\nSaldo - {contaCorrente.Saldo}\n";
                 Console.WriteLine(msg);
 
@@ -22,6 +24,8 @@ partial class Program
             }
         }
         Console.ReadKey();
+        //CriarArquivo();
+        CriarArquivoComWriter();
     }
     static ContaCorrente ConverterStringParaContaCorrente(string linha)
     {
@@ -48,4 +52,9 @@ partial class Program
 
         return resultado;
     }
+
+    
+
 }
+
+
