@@ -30,4 +30,20 @@ partial class Program
             escritor.Write("456,65465,456.0,Pedro");
         }
     }
+
+    static void EscreveTeste()
+    {
+        var localDoArquivo = "Teste.txt";
+        using (var fluxoDeArquivo = new FileStream(localDoArquivo, FileMode.Create))
+        using (var escritor = new StreamWriter(fluxoDeArquivo))
+        {
+            for(int i = 0; i < 10; i++)
+            {
+                escritor.WriteLine($"linha {i}");
+                escritor.Flush();
+                Console.WriteLine("(Enter) para proxima linha ...");
+                Console.ReadKey();
+            }
+        }
+    }
 }
