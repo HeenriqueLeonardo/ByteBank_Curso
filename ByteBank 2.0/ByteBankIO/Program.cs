@@ -6,7 +6,7 @@ partial class Program
 
     static void Main(String[] args)
     {
-        EscreveTeste();
+        UsarStreamDeEntrada();
     }
 }
 
