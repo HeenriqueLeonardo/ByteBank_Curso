@@ -14,7 +14,7 @@ namespace bytebank.Modelos.ADMs.Utilitario
 
         public void Registrar(Funcionario funcionario)
         {
-            _totalBonificacao += funcionario.getBonificacao();
+            _totalBonificacao += funcionario.GetBonificacao();
         }
 
         public double GetTotalBonificacao()
