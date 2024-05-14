@@ -1,6 +1,7 @@
 ﻿using bytebank.Modelos.Conta;
 using bytebank_ATENDIMENTO.bytebank.Exceptions;
 using Newtonsoft.Json;
+using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -100,7 +101,23 @@ namespace bytebank_ATENDIMENTO.bytebank.Atendimento
             }
             else
             {
-                XmlSerializer serializador = new XmlSerializer()
+                var contasXML = new XmlSerializer(typeof(List<ContaCorrente>));
+                try
+                {
+                    FileStream fs = new FileStream(@"c:\temp\export\contas.xml", FileMode.Create);
+                    using (StreamWriter streamWriter = new StreamWriter(fs))
+                    {
+                        contasXML.Serialize(streamWriter, _listaDeContas);
+                    }
+                    Console.WriteLine("Contas exportadas com sucesso para o arquivo contas.xml");
+                    Console.ReadKey();
+                }
+                catch (Exception excecao)
+                {
+                    throw new ByteBankException(excecao.Message);
+                    Console.ReadKey();
+                }
+
             }
         }
 
